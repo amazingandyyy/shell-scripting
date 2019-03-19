@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# This script display various information to the screen
+
+# Display 'Hello'
+echo 'Hello'
+
+# Assign a value to a variable
+WORD='script'
+
+# Display that value using the variable
+echo "$WORD"
+echo '$WORD'
+
+echo this is a $WORD script
+echo "this is a $WORD script"
+echo "this is a ${WORD} script"
+echo ${WORD}ing is fun
+
+ENDING='ed'
+
+echo "this is ${WORD}${ENDING}"
+
+ENDING='ing'
+
+echo "${WORD}${ENDING} is fun"

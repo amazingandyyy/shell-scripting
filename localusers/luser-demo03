@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# demo 1
+echo "Your UID is ${UID}"
+UID_TO_TEST_FOR='501'
+if [[ "${UID}" -ne "${UID_TO_TEST_FOR}" ]]
+then
+    echo "Your UID does not match ${UID_TO_TEST_FOR}"
+    exit 1
+fi
+
+# demo 2
+USER_NAME=$(id -un)
+# ${?} holds the most recent exit command
+if [[ "${?}" -ne 0 ]]
+then
+    echo 'The id command did not execute succesfully'
+    exit 1
+fi
+echo "Your user name is ${USER_NAME}"
+
+# demo 3
+USER_NAME_TO_TEST_FOR="andy"
+# = in [[]] is comparing
+# == is comparing patterns
+if [[ "${USER_NAME}" = "${USER_NAME_TO_TEST_FOR}" ]]
+# if [[ "$(id -un)" -eq "${USER_NAME_TO_TEST_FOR}" ]]
+then
+    echo "Your name matches ${USER_NAME_TO_TEST_FOR}"
+fi
+
+if [[ "${USER_NAME}" != "${USER_NAME_TO_TEST_FOR}" ]]
+# if [[ "$(id -un)" -eq "${USER_NAME_TO_TEST_FOR}" ]]
+then
+    echo "Your name does not matche ${USER_NAME_TO_TEST_FOR}"
+    exit 1
+fi
+
+exit 0
